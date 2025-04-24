@@ -1,7 +1,7 @@
 import Joi from "joi";
 
 export const registerValidation = Joi.object({
-  username: Joi.string().required(),
+  username: Joi.string(),
   email: Joi.string().email().required(),
   password: Joi.string()
     .min(8)
@@ -23,7 +23,6 @@ export const registerValidation = Joi.object({
     }),
   phone: Joi.string()
     .pattern(/^\d{10}$/)
-    .required()
     .messages({
       "string.pattern.base":
         "Phone number must be exactly 10 digits.",
